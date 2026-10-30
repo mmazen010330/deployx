@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-tv: 120rem;
+  --breakpoint-tv-xl: 160rem;
+  --breakpoint-tv-4k: 240rem;
+}
+
+:root {
+  --color-primary: #1677ff;
+  --color-primary-hover: #0958d9;
+  --color-primary-light: #e6f4ff;
+  --color-surface: #ffffff;
+  --color-surface-subtle: #f8fafc;
+  --color-surface-muted: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-border-subtle: #edf2f7;
+  --color-text-main: #0f172a;
+  --color-text-muted: #64748b;
+  --color-text-subtle: #94a3b8;
+  --color-success: #10b981;
+  --color-success-bg: #ecfdf5;
+  --color-warning: #f59e0b;
+  --color-warning-bg: #fffbeb;
+  --color-danger: #ef4444;
+  --color-danger-bg: #fef2f2;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  --shadow-dropdown: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --header-height: 64px;
+  --sidebar-width: 240px;
+  --sidebar-collapsed-width: 68px;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-body: 14px;
+  --font-metric: 24px;
+  --font-page-title: 20px;
+  --sidebar-w: 0px;
+  --touch-min: 44px;
+  --focus-ring: 2px;
+  --content-max: 100%;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-surface-subtle);
+  color: var(--color-text-main);
+  font-family: var(--font-sans);
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --font-metric: 26px;
+    --font-page-title: 22px;
+    --sidebar-w: 64px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --font-metric: 28px;
+    --font-page-title: 24px;
+    --sidebar-w: 240px;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --font-body: 18px;
+    --font-metric: 44px;
+    --font-page-title: 36px;
+    --sidebar-w: 280px;
+    --touch-min: 56px;
+    --focus-ring: 3px;
+    --content-max: 2000px;
+    --sidebar-width: 280px;
+  }
+}
+
+@media (min-width: 1920px) {
+  body {
+    font-size: var(--font-body);
+  }
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: var(--focus-ring) solid #1677ff;
+  outline-offset: 2px;
+}
+
+#search-bar-trigger:focus-visible {
+  outline-color: #94a3b8;
+}
+
+#cmd-input:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 1px #cbd5e1;
+}
+
+/* Custom scrollbar */
+.custom-scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+/* Sidebar */
+#sidebar {
+  width: var(--sidebar-width);
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#sidebar.collapsed {
+  width: var(--sidebar-collapsed-width);
+}
+#sidebar.collapsed .sidebar-text,
+#sidebar.collapsed .sidebar-header-title,
+#sidebar.collapsed .sidebar-category-header,
+#sidebar.collapsed .user-details {
+  display: none !important;
+}
+#sidebar.collapsed .nav-item-btn {
+  justify-content: center !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+#sidebar.collapsed .logo-wrapper {
+  justify-content: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+#sidebar.collapsed .user-card-wrapper {
+  justify-content: center;
+  padding: 0.75rem 0.25rem;
+}
+
+@media (max-width: 1023px) {
+  #sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+    width: 260px !important;
+    transform: translateX(-100%);
+  }
+  #sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  #sidebar .sidebar-text,
+  #sidebar .sidebar-header-title,
+  #sidebar .sidebar-category-header,
+  #sidebar .user-details {
+    display: block !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  #sidebar {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    width: var(--sidebar-collapsed-width) !important;
+    transform: none;
+  }
+  #sidebar.mobile-open {
+    width: var(--sidebar-width) !important;
+  }
+  #sidebar:not(.mobile-open) .sidebar-text,
+  #sidebar:not(.mobile-open) .sidebar-header-title {
+    display: none !important;
+  }
+  #sidebar:not(.mobile-open) .nav-item-btn {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
