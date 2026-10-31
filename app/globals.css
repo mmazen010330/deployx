@@ -120,6 +120,9 @@ body {
 /* Sidebar */
 #sidebar {
   width: var(--sidebar-width);
+  height: 100vh;
+  position: sticky;
+  top: 0;
   transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 #sidebar.collapsed {
@@ -146,7 +149,7 @@ body {
   padding: 0.75rem 0.25rem;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 639px) {
   #sidebar {
     position: fixed;
     top: 0;
@@ -169,14 +172,18 @@ body {
 
 @media (min-width: 640px) and (max-width: 1023px) {
   #sidebar {
-    position: relative;
-    top: auto;
-    bottom: auto;
-    left: auto;
+    position: sticky;
+    top: 0;
+    height: 100vh;
     width: var(--sidebar-collapsed-width) !important;
     transform: none;
   }
   #sidebar.mobile-open {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
     width: var(--sidebar-width) !important;
   }
   #sidebar:not(.mobile-open) .sidebar-text,

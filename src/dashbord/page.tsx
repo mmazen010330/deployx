@@ -53,3 +53,6 @@ export default function Dashboard() {
     </main>
   );
 }
+
+export interface DashboardProps {}
+export { Dashboard };

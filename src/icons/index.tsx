@@ -15,6 +15,20 @@ export const IconFolder = ({ className = 'w-5 h-5 shrink-0' }: { className?: str
   </svg>
 );
 
+export const IconSettings = ({ className = 'w-5 h-5 shrink-0' }: { className?: string }) => (
+  <svg className={className} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="3" />
+    <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-1.7 2.94-.08-.02a1.7 1.7 0 0 0-1.75.62l-.05.07h-3.4l-.05-.07a1.7 1.7 0 0 0-1.75-.62l-.08.02-1.7-2.94.06-.06A1.7 1.7 0 0 0 9.6 15l-.09-.03v-3.4l.09-.03a1.7 1.7 0 0 0-.34-1.88L9.2 9.6l1.7-2.94.08.02a1.7 1.7 0 0 0 1.75-.62l.05-.07h3.4l.05.07a1.7 1.7 0 0 0 1.75.62l.08-.02 1.7 2.94-.06.06A1.7 1.7 0 0 0 19.4 12l.09.03v3.4z" />
+  </svg>
+);
+
+export const IconUser = ({ className = 'w-5 h-5 shrink-0' }: { className?: string }) => (
+  <svg className={className} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24">
+    <circle cx="12" cy="8" r="4" />
+    <path d="M5 21a7 7 0 0 1 14 0" />
+  </svg>
+);
+
 export const IconRocket = ({ className = 'w-5 h-5 shrink-0' }: { className?: string }) => (
   <svg className={className} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24">
     <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
@@ -182,4 +196,3 @@ export const IconAlertCircle = ({ className = 'w-3 h-3' }: { className?: string 
     <line x1="12" x2="12.01" y1="16" y2="16" />
   </svg>
 );
-

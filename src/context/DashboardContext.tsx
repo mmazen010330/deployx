@@ -179,7 +179,7 @@ function CommandPalette({
           <span className="text-slate-500 shrink-0"><IconSearch /></span>
           <input
             aria-autocomplete="list"
-            className="min-w-0 flex-1 px-4 py-4 text-sm text-slate-800 placeholder-slate-500 focus:outline-none bg-transparent"
+            className="min-w-0 flex-1 px-4 py-4 text-sm text-slate-800 placeholder-slate-500 focus:outline-none focus-visible:outline-none bg-transparent"
             id="cmd-input"
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}

@@ -69,7 +69,7 @@ export default function Navbar(props: NavbarProps) {
             <IconSearch />
           </span>
           <input
-            className="py-2.5 w-full h-9.5 pl-9 pr-9 text-xs bg-slate-50 hover:bg-slate-100/70 border border-slate-200 rounded-lg focus:outline-none placeholder-slate-400 text-slate-700 cursor-pointer pointer-events-none transition-colors"
+            className="w-full h-9 pl-9 pr-12 py-1.5 text-xs bg-slate-50 hover:bg-slate-100/70 border border-slate-200 rounded-lg focus:outline-none focus-visible:outline-none placeholder-slate-400 text-slate-700 cursor-pointer pointer-events-none transition-colors"
             placeholder="Search projects (⌘K)"
             readOnly
             tabIndex={-1}
